@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    {
+      "name": "colcon: launch + debug",
+      "type": "ros",
+      "request": "launch",
+      "target": "${workspaceFolder}/../install/lifecycle/share/lifecycle/launch//lifecycle_demo.launch.py",
+      "arguments": [
+        "dev_yaml_params:=${workspaceFolder}/config/pruning_pipeline.dev.yaml"
+      ]
+    }
+  ]
+}

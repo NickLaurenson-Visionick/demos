@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "colcon: build",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": [
+        "colcon build",
+        "--symlink-install",
+        "--packages-up-to",
+        "lifecycle"
+      ]
+    },
+    {
+      "label": "colcon: launch",
+      "type": "shell",
+      "command": [
+        "source install/setup.sh &&",
+        "ros2 launch lifecycle lifecycle_demo.launch.py"
+      ]
+    },
+    {
+      "label": "colcon: clean",
+      "type": "shell",
+      "command": ["rm -rf build/ install/ log/"]
+    },
+    {
+      "label": "colcon: build + launch",
+      "dependsOrder": "sequence",
+      "dependsOn": ["colcon: build", "colcon: launch"],
+      "problemMatcher": ["$gcc"]
+    }
+  ],
+  "options": {
+    "cwd": "${workspaceFolder}/../"
+  }
+}
